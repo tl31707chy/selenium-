@@ -1,0 +1,17 @@
+from time import sleep
+from base import Base,browser
+driver=browser()
+driver.get('http://127.0.0.1:81/zentao/user-login.html')
+zentao=Base(driver)
+loc_username=('id','account')
+loc_password=('name','password')
+loc_submit=('id','submit')
+zentao.sendKeys(loc_username,'admin')
+sleep(1)
+zentao.clear(loc_username)
+sleep(1)
+zentao.sendKeys(loc_username,'admin')
+zentao.sendKeys(loc_password,'123456')
+zentao.click(loc_submit)
+sleep(2)
+driver.quit()
